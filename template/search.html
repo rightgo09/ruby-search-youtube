@@ -1,0 +1,27 @@
+<%#-*- coding: UTF-8 -*-%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>YouTube Search - Result</title>
+<style type="text/css">
+ul li {
+	list-style-type : none;
+	display : inline;
+}
+</style>
+</head>
+<body>
+<h1>YouTube Search</h1>
+<form method="get">
+  <input type="text" name="q" value="<%=h vars['q'] %>" />
+  <input type="submit" value="search" />
+</form>
+<h2>検索結果 (<%= vars['result'].entries.size %>)</h2>
+<ul>  
+  <% for entry in vars['result'].entries %>
+  <li><a href="<%= entry.link %>">
+  <img src="<%= entry.thumbnail_url %>" title="<%=h entry.title %>" /></a></li>
+  <% end %>
+</ul>
+</body>
+</html>
